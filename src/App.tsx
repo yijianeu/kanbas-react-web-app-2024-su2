@@ -1,7 +1,6 @@
 import React from 'react';
 import Labs from './Labs';
 
-
 function App() {
   return (
     <div>
