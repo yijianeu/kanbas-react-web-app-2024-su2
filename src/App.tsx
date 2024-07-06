@@ -1,9 +1,10 @@
 import React from 'react';
 import Labs from './Labs';
+import logo from './logo.svg';
 
 function App() {
   return (
-    <div className="App">
+    <div>
         <h1>Welcome to Web Dev</h1>
         <h2>Yijia Cao</h2>
       <Labs />
