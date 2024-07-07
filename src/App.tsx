@@ -6,6 +6,7 @@ function App() {
     <div>
         <h1>Welcome to Web Dev</h1>
         <h2>Yijia Cao</h2>
+        <h2>CS5610 Section 61065</h2>
       <Labs />
     </div>
   );
