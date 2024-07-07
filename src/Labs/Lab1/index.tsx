@@ -4,6 +4,7 @@ import Lists from "./Lists";
 import Tables from "./Tables";
 import Images from "./Images";
 import Forms from "./Forms";
+import Anchors from "./Anchors";
 
 export default function Lab1() {
     return (
@@ -16,6 +17,7 @@ export default function Lab1() {
            <Tables />
             <Images />
             <Forms />
+            <Anchors />
         </div>
     );
 }
