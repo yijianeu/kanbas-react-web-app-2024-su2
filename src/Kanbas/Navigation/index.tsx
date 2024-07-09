@@ -1,7 +1,7 @@
 export default function KanbasNavigation() {
   return (
       <ul id="wd-kanbas-navigation">
-          <li><a id="wd-neu-link" target="_blank" href="https://www.northeastern.edu/">
+          <li><a id="wd-neu-link" href="https://www.northeastern.edu/">
               Northeastern
           </a>
           </li>
