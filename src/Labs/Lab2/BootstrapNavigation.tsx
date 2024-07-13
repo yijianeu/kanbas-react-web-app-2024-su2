@@ -1,5 +1,5 @@
 export default function BootstrapNavigation() {
-    return ( // Compare this snippet from kanbas-react-web-app/src/Labs/Lab2/BootstrapNavigation.tsx:
+    return (
         <div id="wd-css-navigating-with-tabs">
             <h2>Tabs</h2>
             <ul className="nav nav-tabs">
