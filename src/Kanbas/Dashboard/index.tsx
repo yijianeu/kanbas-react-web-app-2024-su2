@@ -1,113 +1,47 @@
-export default function Dashboard() {
-  return (
-      <div>
-        <div id="wd-dashboard">
-          <h1 id="wd-dashboard-title">Dashboard</h1>
-          <hr />
-          <h2 id="wd-dashboard-published">Published Courses (12)</h2>
-          <hr />
+import { AiOutlineDashboard } from "react-icons/ai";
+import { IoCalendarOutline } from "react-icons/io5";
+import { LiaBookSolid } from "react-icons/lia";
+import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
+import { MdClass } from "react-icons/md";
 
-          <div id="wd-dashboard-courses" className="row">
-            <div className="row row-cols-1 row-cols-md-5 g-4">
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
-                    <img src="/images/reactjs.jpg" alt="React JS course" width="100%" />
-                    <div className="card-body">
-                      <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                      <p className="card-text">Full Stack software developer</p>
-                      <button className="btn btn-primary">Go</button>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-            </div>
-          </div>
+export default function KanbasNavigation() {
+    return (
+        <div style={{ width: 120 }} id="wd-kanbas-navigation" className="list-group rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2">
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-neu-link" href="https://www.northeastern.edu/">
+                <img src="/images/NEU.png" alt="Northeastern logo" width="75px" />
+                Northeastern
+            </a>
 
-          <div id="wd-dashboard-courses" className="row">
-            <div className="row row-cols-1 row-cols-md-5 g-4">
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
-                    <img src="/images/reactjs.jpg" alt="React JS course" width="100%" />
-                    <div className="card-body">
-                      <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                      <p className="card-text">Full Stack software developer</p>
-                      <button className="btn btn-primary">Go</button>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-            </div>
-          </div>
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-account-link" href="#/Kanbas/Account">
+                <FaRegCircleUser className="fs-1 text text-white" /><br />
+                Account
+            </a>
 
-          <div id="wd-dashboard-courses" className="row">
-            <div className="row row-cols-1 row-cols-md-5 g-4">
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
-                    <img src="/images/reactjs.jpg" alt="React JS course" width="100%" />
-                    <div className="card-body">
-                      <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                      <p className="card-text">Full Stack software developer</p>
-                      <button className="btn btn-primary">Go</button>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-            </div>
-          </div>
+            <a className="list-group-item bg-white text-danger border-0 text-center" id="wd-dashboard-link" href="#/Kanbas/Dashboard">
+                <AiOutlineDashboard className="fs-1 text-danger" /><br />
+                Dashboard
+            </a>
 
-          <div id="wd-dashboard-courses" className="row">
-            <div className="row row-cols-1 row-cols-md-5 g-4">
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
-                    <img src="/images/reactjs.jpg" alt="React JS course" width="100%" />
-                    <div className="card-body">
-                      <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                      <p className="card-text">Full Stack software developer</p>
-                      <button className="btn btn-primary">Go</button>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-            </div>
-          </div>
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-course-link" href="#/Kanbas/Courses">
+                <LiaBookSolid className="fs-1 text-danger" /><br />
+                Courses
+            </a>
 
-          <div id="wd-dashboard-courses" className="row">
-            <div className="row row-cols-1 row-cols-md-5 g-4">
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
-                    <img src="/images/reactjs.jpg" alt="React JS course" width="100%" />
-                    <div className="card-body">
-                      <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                      <p className="card-text">Full Stack software developer</p>
-                      <button className="btn btn-primary">Go</button>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-              <div className="wd-dashboard-course col" style={{ width: "300px" }}>...</div>
-            </div>
-          </div>
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-calendar-link" href="#/Kanbas/Calendar">
+                <IoCalendarOutline className="fs-1 text-danger" /><br />
+                Calendar
+            </a>
+
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-inbox-link" href="#/Kanbas/Inbox">
+                <FaInbox className="fs-1 text-danger" /><br />
+                Inbox
+            </a>
+
+            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-labs-link" href="#/Labs">
+                <MdClass className="fs-1 text-danger" /><br />
+                Labs
+            </a>
         </div>
-      </div>
-  );
+    );
 }
 
