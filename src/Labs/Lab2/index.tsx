@@ -8,10 +8,25 @@ import Margins from "./Margins";
 import Corners from "./Corners";
 import Dimensions from "./Dimensions";
 import Positions from "./Positions";
+import Zindex from "./Zindex";
+import Float from "./Float";
+import GridLayout from "./GridLayout";
+import Flex from "./Flex";
+import BootstrapGrids from "./BootstrapGrids";
+import ScreenSizeLabel from "./ScreenSizeLabel";
+import BootstrapTables from "./BootstrapTables";
+import BootstrapLists from "./BootstrapLists";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapNavigation from "./BootstrapNavigation";
 export default function Lab2() {
     return (
-        <div id="wd-lab2">
+        <div className="container-fluid" id="wd-lab2">
             <h2>Lab 2 - Cascading Style Sheets</h2>
+            <BootstrapNavigation />
+            <BootstrapForms />
+            <BootstrapLists />
+            <ScreenSizeLabel />
+            <BootstrapTables />
             <h3>Styling with the STYLE attribute</h3>
             <p>
                 Style attribute allows configuring look and feel
@@ -70,6 +85,11 @@ export default function Lab2() {
             <Corners />
             <Dimensions />
             <Positions />
+            <Zindex />
+            <Float />
+            <GridLayout />
+            <Flex />
+            <BootstrapGrids />
         </div>
     );
 }
