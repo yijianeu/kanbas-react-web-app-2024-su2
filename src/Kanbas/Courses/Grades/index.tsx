@@ -20,24 +20,24 @@ export default function Grades() {
                     </div>
                 </div>
                 <div className="col-md-2 d-flex align-items-end">
-                    <button className="btn btn-outline-secondary w-100">
+                    <button className="btn btn-outline-secondary w-100 mb-3 mb-md-0">
                         <FaFilter className="me-2" />
                         Apply Filters
                     </button>
                 </div>
-                <div className="col-md-4 d-flex justify-content-end align-items-center mt-4 mt-md-0">
-                    <button className="btn btn-outline-secondary me-2">
+                <div className="col-md-4 d-flex justify-content-between justify-content-md-end align-items-center mt-4 mt-md-0">
+                    <button className="btn btn-outline-secondary me-2 mb-3 mb-md-0">
                         <FaFileImport className="me-2" />
                         Import
                     </button>
-                    <div className="btn-group me-2">
+                    <div className="btn-group me-2 mb-3 mb-md-0">
                         <button className="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                             <FaFileExport className="me-2" />
                             Export
                         </button>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#">Export as CSV</a></li>
-                            <li><a className="dropdown-item" href="#">Export as Excel</a></li>
+                            <li><a className="dropdown-item">Export as CSV</a></li>
+                            <li><a className="dropdown-item">Export as Excel</a></li>
                         </ul>
                     </div>
                     <button className="btn btn-outline-secondary">
