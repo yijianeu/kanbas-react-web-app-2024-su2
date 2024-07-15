@@ -35,10 +35,6 @@ export default function Grades() {
                             <FaFileExport className="me-2" />
                             Export
                         </button>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item">Export as CSV</a></li>
-                            <li><a className="dropdown-item">Export as Excel</a></li>
-                        </ul>
                     </div>
                     <button className="btn btn-outline-secondary">
                         <FaCog />
