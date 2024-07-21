@@ -1,10 +1,26 @@
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
-import { LiaBookSolid } from "react-icons/lia";
+import {LiaBookSolid, LiaCogSolid} from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
-import { MdClass } from "react-icons/md";
+import { useLocation } from "react-router";
+import {Link} from "react-router-dom";
+import { FaHandsHelping } from "react-icons/fa";
+import { FaHistory } from "react-icons/fa";
+import { SiYoutubestudio } from "react-icons/si";
 
 export default function KanbasNavigation() {
+    const { pathname } = useLocation();
+    const links = [
+        { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
+        { label: "Courses",   path: "/Kanbas/Dashboard", icon: LiaBookSolid },
+        { label: "Calendar",  path: "/Kanbas/Calendar",  icon: IoCalendarOutline },
+        { label: "Inbox",     path: "/Kanbas/Inbox",     icon: FaInbox },
+        { label: "History",     path: "/Kanbas/History",     icon: FaHistory },
+        { label: "Studio",     path: "/Kanbas/Studio",     icon: SiYoutubestudio },
+        { label: "Help",     path: "/Kanbas/Help",     icon: FaHandsHelping },
+        { label: "Labs",      path: "/Labs",             icon: LiaCogSolid },
+    ];
+
     return (
         <div style={{ width: 120 }} id="wd-kanbas-navigation" className="list-group rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2">
             <a className="list-group-item bg-black text-white border-0 text-center" id="wd-neu-link" href="https://www.northeastern.edu/">
@@ -12,35 +28,23 @@ export default function KanbasNavigation() {
                 Northeastern
             </a>
 
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-account-link" href="#/Kanbas/Account">
-                <FaRegCircleUser className="fs-1 text text-white" /><br />
+            <span style={{color: "white" }} >{pathname} </span>
+            <Link key="/Kanbas/Account" to="/Kanbas/Account" className={`list-group-item text-center border-0 bg-black
+            ${pathname.includes("Account") ? "bg-white text-danger" : "bg-black text-white"}`}>
+                <FaRegCircleUser className={`fs-1 ${pathname.includes("Account") ? "text-danger" : "text-white"}`} />
+                <br />
                 Account
-            </a>
+            </Link>
 
-            <a className="list-group-item bg-white text-danger border-0 text-center" id="wd-dashboard-link" href="#/Kanbas/Dashboard">
-                <AiOutlineDashboard className="fs-1 text-danger" /><br />
-                Dashboard
-            </a>
+            {links.map((link) => (
+                <Link key={link.path} to={link.path} className={`list-group-item bg-black text-center border-0
+              ${pathname.includes(link.label) ? "text-danger bg-white" : "text-white bg-black"}`}>
+                    {link.icon({ className: "fs-1 text-danger"})}
+                    <br />
+                    {link.label}
+                </Link>
+            ))}
 
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-course-link" href="#/Kanbas/Courses">
-                <LiaBookSolid className="fs-1 text-danger" /><br />
-                Courses
-            </a>
-
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-calendar-link" href="#/Kanbas/Calendar">
-                <IoCalendarOutline className="fs-1 text-danger" /><br />
-                Calendar
-            </a>
-
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-inbox-link" href="#/Kanbas/Inbox">
-                <FaInbox className="fs-1 text-danger" /><br />
-                Inbox
-            </a>
-
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-labs-link" href="#/Labs">
-                <MdClass className="fs-1 text-danger" /><br />
-                Labs
-            </a>
         </div>
     );
 }
