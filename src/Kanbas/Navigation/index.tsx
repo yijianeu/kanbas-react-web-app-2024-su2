@@ -1,50 +1,30 @@
-import { AiOutlineDashboard } from "react-icons/ai";
-import { IoCalendarOutline } from "react-icons/io5";
-import {LiaBookSolid, LiaCogSolid} from "react-icons/lia";
-import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
-import { useLocation } from "react-router";
-import {Link} from "react-router-dom";
-import { FaHandsHelping } from "react-icons/fa";
-import { FaHistory } from "react-icons/fa";
-import { SiYoutubestudio } from "react-icons/si";
+import { courses } from "../../Database";
+import { useParams, useLocation } from "react-router";
+import "./index.css";
 
-export default function KanbasNavigation() {
+export default function CoursesNavigation() {
+    const { cid } = useParams();
+    const course = courses.find((course) => course._id === cid);
     const { pathname } = useLocation();
-    const links = [
-        { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
-        { label: "Courses",   path: "/Kanbas/Dashboard", icon: LiaBookSolid },
-        { label: "Calendar",  path: "/Kanbas/Calendar",  icon: IoCalendarOutline },
-        { label: "Inbox",     path: "/Kanbas/Inbox",     icon: FaInbox },
-        { label: "History",     path: "/Kanbas/History",     icon: FaHistory },
-        { label: "Studio",     path: "/Kanbas/Studio",     icon: SiYoutubestudio },
-        { label: "Help",     path: "/Kanbas/Help",     icon: FaHandsHelping },
-        { label: "Labs",      path: "/Labs",             icon: LiaCogSolid },
-    ];
+    const currentPage = pathname.split("/")[4];
+    const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades"];
+
+    const getClassName = (link: string) => {
+        return currentPage.toLowerCase() === link.toLowerCase() ? "list-group-item active border border-0" : "list-group-item text-danger border border-0";
+    };
 
     return (
-        <div style={{ width: 120 }} id="wd-kanbas-navigation" className="list-group rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2">
-            <a className="list-group-item bg-black text-white border-0 text-center" id="wd-neu-link" href="https://www.northeastern.edu/">
-                <img src="/images/NEU.png" alt="Northeastern logo" width="75px" />
-                Northeastern
-            </a>
-
-            <span style={{color: "white" }} >{pathname} </span>
-            <Link key="/Kanbas/Account" to="/Kanbas/Account" className={`list-group-item text-center border-0 bg-black
-            ${pathname.includes("Account") ? "bg-white text-danger" : "bg-black text-white"}`}>
-                <FaRegCircleUser className={`fs-1 ${pathname.includes("Account") ? "text-danger" : "text-white"}`} />
-                <br />
-                Account
-            </Link>
-
+        <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
             {links.map((link) => (
-                <Link key={link.path} to={link.path} className={`list-group-item bg-black text-center border-0
-              ${pathname.includes(link.label) ? "text-danger bg-white" : "text-white bg-black"}`}>
-                    {link.icon({ className: "fs-1 text-danger"})}
-                    <br />
-                    {link.label}
-                </Link>
+                <a
+                    key={link}
+                    id={`wd-course-${link.toLowerCase()}-link`}
+                    href={`#/Kanbas/Courses/${course?._id}/${link}`}
+                    className={getClassName(link)}
+                >
+                    {link}
+                </a>
             ))}
-
         </div>
     );
 }
