@@ -1,27 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaFilter, FaFileImport, FaFileExport, FaCog } from 'react-icons/fa';
+import { CiFilter } from "react-icons/ci";
+import { useParams } from 'react-router-dom';
+import * as db from "../../Database";
 
 export default function Grades() {
+    const { cid } = useParams();
+    const [searchStudent, setSearchStudent] = useState('');
+    const [searchAssignment, setSearchAssignment] = useState('');
+
+    const users = db.users;
+    const enrollments = db.enrollments;
+    const assignments = db.assignments;
+    const grades = db.grades;
+
+    const enrolledStudents = enrollments
+        .filter(enrollment => enrollment.course === cid)
+        .map(enrollment => {
+            const user = users.find(user => user._id === enrollment.user);
+            return {
+                ...user,
+                enrollmentId: enrollment._id,
+            };
+        });
+
+    const courseAssignments = assignments.filter(assignment => assignment.course === cid);
+
+    const studentGrades = grades.filter(grade => enrolledStudents.some(student => student._id === grade.student));
+
+    const filteredStudents = enrolledStudents.filter(student =>
+        `${student.firstName} ${student.lastName}`.toLowerCase().includes(searchStudent.toLowerCase())
+    );
+
+    const filteredAssignments = courseAssignments.filter(assignment =>
+        assignment.title.toLowerCase().includes(searchAssignment.toLowerCase())
+    );
+
     return (
-        <div className="container mt-4">
+        <div id="wd-grades" className="container mt-4">
             <div className="row mb-3 align-items-center">
                 <div className="col-md-3">
                     <label className="form-label">Student Names</label>
                     <div className="input-group">
                         <span className="input-group-text"><FaFilter /></span>
-                        <input type="text" className="form-control" placeholder="Search Students" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search Students"
+                            value={searchStudent}
+                            onChange={(e) => setSearchStudent(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="col-md-3">
                     <label className="form-label">Assignment Names</label>
                     <div className="input-group">
                         <span className="input-group-text"><FaFilter /></span>
-                        <input type="text" className="form-control" placeholder="Search Assignments" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search Assignments"
+                            value={searchAssignment}
+                            onChange={(e) => setSearchAssignment(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="col-md-2 d-flex align-items-end">
                     <button className="btn btn-outline-secondary w-100 mb-3 mb-md-0">
-                        <FaFilter className="me-2" />
+                        <CiFilter className="me-2" />
                         Apply Filters
                     </button>
                 </div>
@@ -46,25 +92,21 @@ export default function Grades() {
                     <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th>A1 SETUP<br />Out of 100</th>
-                        <th>A2 HTML<br />Out of 100</th>
-                        <th>A3 CSS<br />Out of 100</th>
-                        <th>A4 BOOTSTRAP<br />Out of 100</th>
+                        {filteredAssignments.map(assignment => (
+                            <th key={assignment._id}>{assignment.title}<br />Out of 100</th>
+                        ))}
                     </tr>
                     </thead>
                     <tbody>
-                    {grades.map((grade, index) => (
-                        <tr key={index}>
-                            <td>{grade.name}</td>
-                            {grade.scores.map((score, idx) => (
-                                <td key={idx}>
-                                    {score.isEditable ? (
-                                        <input type="text" className="form-control" defaultValue={score.value} />
-                                    ) : (
-                                        score.value
-                                    )}
-                                </td>
-                            ))}
+                    {filteredStudents.map(student => (
+                        <tr key={student._id}>
+                            <td>{`${student.firstName} ${student.lastName}`}</td>
+                            {filteredAssignments.map(assignment => {
+                                const grade = studentGrades.find(g => g.student === student._id && g.assignment === assignment._id);
+                                return (
+                                    <td key={assignment._id}>{grade ? `${grade.grade}%` : 'N/A'}</td>
+                                );
+                            })}
                         </tr>
                     ))}
                     </tbody>
@@ -73,60 +115,3 @@ export default function Grades() {
         </div>
     );
 }
-
-const grades = [
-    {
-        name: 'Jane Adams',
-        scores: [
-            { value: '100%', isEditable: true },
-            { value: '96.67%', isEditable: false },
-            { value: '92.18%', isEditable: false },
-            { value: '66.22%', isEditable: false },
-        ],
-    },
-    {
-        name: 'Christina Allen',
-        scores: [
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: true },
-            { value: '100%', isEditable: false },
-        ],
-    },
-    {
-        name: 'Samreen Ansari',
-        scores: [
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: true },
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: false },
-        ],
-    },
-    {
-        name: 'Han Bao',
-        scores: [
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: false },
-            { value: '88.03%', isEditable: true },
-            { value: '98.99%', isEditable: false },
-        ],
-    },
-    {
-        name: 'Mahi Sai Srinivas Bobbili',
-        scores: [
-            { value: '100%', isEditable: false },
-            { value: '96.67%', isEditable: false },
-            { value: '98.37%', isEditable: false },
-            { value: '100%', isEditable: true },
-        ],
-    },
-    {
-        name: 'Siran Cao',
-        scores: [
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: true },
-            { value: '100%', isEditable: false },
-            { value: '100%', isEditable: false },
-        ],
-    },
-];
