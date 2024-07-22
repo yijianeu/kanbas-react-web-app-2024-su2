@@ -5,7 +5,7 @@ import { IoEllipsisVertical } from 'react-icons/io5';
 import { BsGripVertical, BsPlusLg } from 'react-icons/bs';
 import { MdAssignment } from 'react-icons/md';
 import { Link, useParams, useLocation } from 'react-router-dom';
-import assignments from '/Users/yijiacao/Desktop/2034/summer/webdev/A1/kanbas-react-web-app/src/Kanbas/Database/assignments.json';
+import assignments from '../../../Kanbas/Database/assignments.json';
 import './styles.css';
 
 function AssignmentControl() {
