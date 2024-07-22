@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { FaFilter, FaFileImport, FaFileExport, FaCog } from 'react-icons/fa';
 import { CiFilter } from "react-icons/ci";
 import { useParams } from 'react-router-dom';
-import * as db from "../../Database";
+import users from '../../Database/users.json';
+import enrollments from '../../Database/enrollments.json';
+import assignments from '../../Database/assignments.json';
+import grades from '../../Database/grades.json';
 
 export default function Grades() {
     const { cid } = useParams();
     const [searchStudent, setSearchStudent] = useState('');
     const [searchAssignment, setSearchAssignment] = useState('');
-
-    const users = db.users;
-    const enrollments = db.enrollments;
-    const assignments = db.assignments;
-    const grades = db.grades;
 
     const enrolledStudents = enrollments
         .filter(enrollment => enrollment.course === cid)
