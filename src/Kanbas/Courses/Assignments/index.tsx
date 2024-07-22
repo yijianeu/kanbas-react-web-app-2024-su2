@@ -5,7 +5,7 @@ import { IoEllipsisVertical } from 'react-icons/io5';
 import { BsGripVertical, BsPlusLg } from 'react-icons/bs';
 import { MdAssignment } from 'react-icons/md';
 import { Link, useParams, useLocation } from 'react-router-dom';
-import * as db from "../../Database";
+import assignments from '../../Database/assignments.json';
 import './styles.css';
 
 function AssignmentControl() {
@@ -75,8 +75,9 @@ function GreenCheckmarkNew() {
 
 export default function Assignments() {
     const { cid } = useParams();
-    const assignments = db.assignments;
     const { pathname } = useLocation();
+
+    const courseAssignments = assignments.filter(assignment => assignment.course === cid);
 
     return (
         <div id="wd-assignments">
@@ -90,43 +91,30 @@ export default function Assignments() {
                     </div>
 
                     <ul className="wd-assignments list-group rounded-0">
-                        {assignments.filter((assignment) => assignment.course === cid)
-                            .map((assignment) => (
-                                <li id="wd-assignment-GreenBorder" className="wd-assignment-list list-group-item p-3 ps-1" key={assignment._id}>
-                                    <div className="row align-items-center">
-                                        <div className="col-2">
-                                            <LeftButton />
-                                        </div>
-                                        <div className="col-8">
-                                            <Link to={`${pathname}/${assignment._id}`} className="wd-assignment-link text-dark text-decoration-none">
-                                                <strong>{assignment._id}</strong>
-                                            </Link>
-                                            <div className="wd-assignment-details">
-                                                <span className="text-danger">{assignment.title}</span> {assignment.available ? 'Available' : 'Not Available'}
-                                                | <strong>Due</strong> {assignment.date_due} | pts {assignment.points}
-                                            </div>
-                                        </div>
-                                        <div className="col-2">
-                                            <LessControlButtons />
+                        {courseAssignments.map(assignment => (
+                            <li id="wd-assignment-GreenBorder" className="wd-assignment-list list-group-item p-3 ps-1" key={assignment._id}>
+                                <div className="row align-items-center">
+                                    <div className="col-2">
+                                        <LeftButton />
+                                    </div>
+                                    <div className="col-8">
+                                        <Link to={`${pathname}/${assignment._id}`} className="wd-assignment-link text-dark text-decoration-none">
+                                            <strong>{assignment._id}</strong>
+                                        </Link>
+                                        <div className="wd-assignment-details">
+                                            <span className="text-danger">{assignment.title}</span> {assignment.available ? 'Available' : 'Not Available'}
+                                            | <strong>Due</strong> {assignment.date_due} | pts {assignment.points}
                                         </div>
                                     </div>
-                                </li>
-                            ))}
+                                    <div className="col-2">
+                                        <LessControlButtons />
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
                     </ul>
                 </li>
             </ul>
         </div>
     );
 }
-
-const assignments = [
-    { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "available": true, "due": "2024-08-10T23:59", "points": 100, "date_available": "2024-07-01T00:00", "date_due": "2024-08-10T23:59" },
-    { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "available": true, "due": "2024-08-20T23:59", "points": 90, "date_available": "2024-07-10T00:00", "date_due": "2024-08-20T23:59" },
-    { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "available": true, "due": "2024-08-30T23:59", "points": 120, "date_available": "2024-07-15T00:00", "date_due": "2024-08-30T23:59" },
-    { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "available": true, "due": "2024-07-25T23:59", "points": 50, "date_available": "2024-07-01T00:00", "date_due": "2024-07-25T23:59" },
-    { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "available": true, "due": "2024-08-05T23:59", "points": 80, "date_available": "2024-07-10T00:00", "date_due": "2024-08-05T23:59" },
-    { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "available": true, "due": "2024-08-15T23:59", "points": 70, "date_available": "2024-07-15T00:00", "date_due": "2024-08-15T23:59" },
-    { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "available": true, "due": "2024-08-25T23:59", "points": 110, "date_available": "2024-07-20T00:00", "date_due": "2024-08-25T23:59" },
-    { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "available": true, "due": "2024-09-05T23:59", "points": 130, "date_available": "2024-07-25T00:00", "date_due": "2024-09-05T23:59" },
-    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "available": true, "due": "2024-09-15T23:59", "points": 150, "date_available": "2024-08-01T00:00", "date_due": "2024-09-15T23:59" }
-];
