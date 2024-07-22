@@ -1,0 +1,11 @@
+[
+  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "available": true, "due": "2024-08-10T23:59", "points": 100, "date_available": "2024-07-01T00:00", "date_due": "2024-08-10T23:59" },
+  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "available": true, "due": "2024-08-20T23:59", "points": 90, "date_available": "2024-07-10T00:00", "date_due": "2024-08-20T23:59" },
+  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "available": true, "due": "2024-08-30T23:59", "points": 120, "date_available": "2024-07-15T00:00", "date_due": "2024-08-30T23:59" },
+  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "available": true, "due": "2024-07-25T23:59", "points": 50, "date_available": "2024-07-01T00:00", "date_due": "2024-07-25T23:59" },
+  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "available": true, "due": "2024-08-05T23:59", "points": 80, "date_available": "2024-07-10T00:00", "date_due": "2024-08-05T23:59" },
+  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "available": true, "due": "2024-08-15T23:59", "points": 70, "date_available": "2024-07-15T00:00", "date_due": "2024-08-15T23:59" },
+  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "available": true, "due": "2024-08-25T23:59", "points": 110, "date_available": "2024-07-20T00:00", "date_due": "2024-08-25T23:59" },
+  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "available": true, "due": "2024-09-05T23:59", "points": 130, "date_available": "2024-07-25T00:00", "date_due": "2024-09-05T23:59" },
+  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "available": true, "due": "2024-09-15T23:59", "points": 150, "date_available": "2024-08-01T00:00", "date_due": "2024-09-15T23:59" }
+]
