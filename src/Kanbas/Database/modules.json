@@ -97,11 +97,11 @@
       },
       {
         "_id": "L403",
-        "name": "Aerodynamic Drag",
-        "description": "Understanding aerodynamic drag and its reduction.",
+        "name": "Aerodynamic Design",
+        "description": "Principles of aerodynamic design and optimization.",
         "module": "M201"
       }
-    ]
+    ] 
   },
   {
     "_id": "M202",
@@ -112,19 +112,19 @@
       {
         "_id": "L501",
         "name": "Subsonic Flow",
-        "description": "Overview of subsonic aerodynamics and design considerations.",
+        "description": "Characteristics of subsonic flow and its effects.",
         "module": "M202"
       },
       {
         "_id": "L502",
         "name": "Supersonic Flow",
-        "description": "Understanding supersonic aerodynamics and its challenges.",
+        "description": "Characteristics of supersonic flow and its effects.",
         "module": "M202"
       },
       {
         "_id": "L503",
-        "name": "Hypersonic Flow",
-        "description": "Overview of hypersonic aerodynamics and its applications.",
+        "name": "Transonic Flow",
+        "description": "Characteristics of transonic flow and its effects.",
         "module": "M202"
       }
     ]
@@ -149,8 +149,8 @@
       },
       {
         "_id": "L603",
-        "name": "Reentry Vehicles",
-        "description": "Design considerations for reentry vehicles and spacecraft.",
+        "name": "Heat Shield Design",
+        "description": "Design principles of heat shields for re-entry vehicles.",
         "module": "M203"
       }
     ]
@@ -159,18 +159,78 @@
     "_id": "M301",
     "name": "Spacecraft Structural Design",
     "description": "Fundamentals of designing spacecraft structures and materials selection.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L701",
+        "name": "Structural Design Principles",
+        "description": "Basic principles of spacecraft structural design.",
+        "module": "M301"
+      },
+      {
+        "_id": "L702",
+        "name": "Materials Selection",
+        "description": "Overview of materials selection for spacecraft structures.",
+        "module": "M301"
+      },
+      {
+        "_id": "L703",
+        "name": "Structural Analysis",
+        "description": "Methods for structural analysis and testing.",
+        "module": "M301"
+      }
+    ]
   },
   {
     "_id": "M302",
     "name": "Orbital Mechanics",
     "description": "Understanding orbital dynamics and mission planning.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L801",
+        "name": "Kepler's Laws",
+        "description": "Overview of Kepler's laws of planetary motion.",
+        "module": "M302"
+      },
+      {
+        "_id": "L802",
+        "name": "Orbital Elements",
+        "description": "Understanding orbital elements and their significance.",
+        "module": "M302"
+      },
+      {
+        "_id": "L803",
+        "name": "Mission Planning",
+        "description": "Principles of mission planning and trajectory optimization.",
+        "module": "M302"
+      }
+    ]
   },
   {
     "_id": "M303",
     "name": "Spacecraft Systems Engineering",
     "description": "Overview of spacecraft systems and subsystems engineering.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L901",
+        "name": "Systems Engineering Process",
+        "description": "Overview of systems engineering process for spacecraft.",
+        "module": "M303"
+      },
+      {
+        "_id": "L902",
+        "name": "Spacecraft Subsystems",
+        "description": "Overview of different spacecraft subsystems.",
+        "module": "M303"
+      },
+      {
+        "_id": "L903",
+        "name": "Integration and Testing",
+        "description": "Methods for spacecraft integration and testing.",
+        "module": "M303"
+      }
+    ]
   }
 ]
