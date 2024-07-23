@@ -11,32 +11,32 @@ export default function ModulesControls() {
             </button>
             <div className="dropdown d-inline me-1 float-end">
                 <button id="wd-publish-all-btn" className="btn btn-lg wd-btn-secondary dropdown-toggle"
-                    type="button" data-bs-toggle="dropdown">
+                        type="button" data-bs-toggle="dropdown">
                     <GreenCheckmark />
                     Publish All
                 </button>
                 <ul className="dropdown-menu">
                     <li>
-                        <a id="wd-publish-all-modules-and-items-btn" className="dropdown-item" href="#">
+                        <a id="wd-publish-all-modules-and-items-btn" className="dropdown-item" href="/publish-all">
                             <GreenCheckmark />
                             Publish all modules and items
                         </a>
                     </li>
                     <li>
-                        <a id="wd-publish-modules-only-button" className="dropdown-item" href="#">
+                        <a id="wd-publish-modules-only-button" className="dropdown-item" href="/publish-modules">
                             <GreenCheckmark />
                             Publish modules only
                         </a>
                     </li>
 
                     <li>
-                        <a id="wd-unpublish-all-modules-and-items" className="dropdown-item" href="#">
+                        <a id="wd-unpublish-all-modules-and-items" className="dropdown-item" href="/unpublish-all">
                             <Nosign />
                             Unpublish all modules and items
                         </a>
                     </li>
                     <li>
-                        <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
+                        <a id="wd-unpublish-modules-only" className="dropdown-item" href="/unpublish-modules">
                             <Nosign />
                             Unpublish modules only
                         </a>
@@ -47,7 +47,7 @@ export default function ModulesControls() {
             {/* Implement the View Progress and Collapse All buttons
           with IDs wd-view-progress and wd-collapse-all */}
             <button id="wd-view-progress" className="btn btn-lg wd-btn-secondary me-1 float-end"
-                    type="button" >
+                    type="button">
                 View Progress
             </button>
 
@@ -55,8 +55,6 @@ export default function ModulesControls() {
                     type="button">
                 Collapse All
             </button>
-
-
         </div>
     );
 }
