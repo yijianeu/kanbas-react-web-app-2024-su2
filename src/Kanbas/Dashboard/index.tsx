@@ -12,19 +12,27 @@ export default function Dashboard() {
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses.map((course) => (
-            <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-              <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none" >
+            <div className="wd-dashboard-course col" style={{ width: "300px" }} key={course._id}>
+              <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none">
                 <div className="card rounded-3 overflow-hidden">
-                  <img src="/images/reactjs.jpg" height="{160}" />
+                  <img
+                    src="/images/reactjs.jpg"
+                    height="160"
+                    alt={`${course.name} course image`} // Added alt attribute
+                  />
                   <div className="card-body">
-                    <span className="wd-dashboard-course-link"
-                      style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }} >
+                    <span
+                      className="wd-dashboard-course-link"
+                      style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}
+                    >
                       {course.name}
                     </span>
                     <p className="wd-dashboard-course-title card-text" style={{ maxHeight: 53, overflow: "hidden" }}>
                       {course.description}
                     </p>
-                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">Go</Link>
+                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                      Go
+                    </Link>
                   </div>
                 </div>
               </Link>
