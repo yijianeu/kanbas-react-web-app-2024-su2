@@ -4,14 +4,12 @@ import AssignmentControlButton from "./AssignmentControlButton";
 import LessControlButtons from "./LessConstrolButton";
 import LeftButton from "./LeftButton";
 import { Link, useParams, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Assignments() {
     const { cid } = useParams();
     const { pathname } = useLocation();
-    const { assignments} = useSelector((state: any) => state.assignmentsReducer);
-    const dispatch = useDispatch();
-    
+    const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 
     return (
         <div id="wd-assignments">
@@ -25,24 +23,30 @@ export default function Assignments() {
                     </div>
 
                     <ul className="wd-assignments list-group rounded-0">
-                        {assignments.filter((assignment: any) => assignment.course === cid)
+                        {assignments
+                            .filter((assignment: any) => assignment.course === cid)
                             .map((assignment: any) => (
-
-                                <li id="wd-assignment-GreenBorder"
-                                    className="wd-assignment-list list-group-item p-3 ps-1">
+                                <li
+                                    key={assignment._id}
+                                    id="wd-assignment-GreenBorder"
+                                    className="wd-assignment-list list-group-item p-3 ps-1"
+                                >
                                     <div className="row align-items-center">
                                         <div className="col-2">
                                             <LeftButton />
                                         </div>
                                         <div className="col-8">
-                                            <Link to={`${pathname}/${assignment._id}`}
+                                            <Link
+                                                to={`${pathname}/${assignment._id}`}
                                                 className="wd-assignment-link text-dark text-decoration-none"
                                             >
                                                 <strong>{assignment.title}</strong>
                                             </Link>
                                             <div className="wd-assignment-details">
-                                                <span className="text-danger">Multiple Modules</span> | <strong>Not available until</strong> {assignment.available}
-                                                | <strong>Due</strong> {assignment.due} | {assignment.points} pts {assignment.description}
+                                                <span className="text-danger">Multiple Modules</span> |{" "}
+                                                <strong>Not available until</strong> {assignment.available} |{" "}
+                                                <strong>Due</strong> {assignment.due} | {assignment.points} pts{" "}
+                                                {assignment.description}
                                             </div>
                                         </div>
                                         <div className="col-2">
@@ -50,19 +54,11 @@ export default function Assignments() {
                                         </div>
                                     </div>
                                 </li>
-
                             ))}
-
                     </ul>
-
-
-
                 </li>
             </ul>
-
-
-
-
         </div>
     );
 }
+
