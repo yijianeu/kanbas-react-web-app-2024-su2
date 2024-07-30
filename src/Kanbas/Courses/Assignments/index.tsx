@@ -4,10 +4,7 @@ import AssignmentControlButton from "./AssignmentControlButton";
 import LessControlButtons from "./LessConstrolButton";
 import LeftButton from "./LeftButton";
 import { Link, useParams, useLocation } from "react-router-dom";
-import * as db from "../../Database";
-import { addAssignment, deleteAssignment, updateAssignment } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
 
 export default function Assignments() {
     const { cid } = useParams();
