@@ -11,7 +11,6 @@ import * as client from "./client";
 
 export default function Modules() {
     const saveModule = async (module: any) => {
-        const status = await client.updateModule(module);
         dispatch(updateModule(module));
     };
 
