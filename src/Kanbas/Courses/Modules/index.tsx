@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import ModulesControls from "./ModulesControls";
 import LessonControlButtons from "./LessonControlButtons";
 import { BsGripVertical } from "react-icons/bs";
@@ -28,13 +28,13 @@ export default function Modules() {
         dispatch(addModule(newModule));
     };
 
-    const fetchModules = async () => {
+    const fetchModules = useCallback(async () => {
         const modules = await client.findModulesForCourse(cid as string);
         dispatch(setModules(modules));
-    };
+    }, [cid, dispatch]);
     useEffect(() => {
         fetchModules();
-    }, []);
+    }, [fetchModules]);
 
     return (
         <div id="wd-modules">
