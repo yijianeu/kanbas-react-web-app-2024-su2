@@ -11,7 +11,7 @@ export default function Lab5() {
         <div id="wd-lab5">
             <h1>Lab 5</h1>
             <div className="list-group">
-                <a href={`${REMOTE_SERVER}/lab5`}>Hello</a>
+                <a href={`${REMOTE_SERVER}/lab5/welcome`}>Hello</a>
                 <h2>Calculator</h2>
                 <EncodingParametersInURLs />
             </div><hr/>
