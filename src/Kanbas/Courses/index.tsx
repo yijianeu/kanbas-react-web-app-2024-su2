@@ -6,6 +6,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { RxTextAlignJustify } from "react-icons/rx";
+import PeopleTable from "../People/Table";
 
 export default function Courses(
   { courses }: { courses: any[]; }) 
@@ -35,6 +36,8 @@ export default function Courses(
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:id" element={<AssignmentEditor />} />
             <Route path="Grades" element={<Grades />} />
+            <Route path="People" element={<PeopleTable />} />
+            <Route path="People/:uid" element={<PeopleTable />} />
           </Routes>
         </div>
       </div>
