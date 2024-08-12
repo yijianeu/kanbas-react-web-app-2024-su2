@@ -13,7 +13,7 @@ export default function Profile() {
     } catch (err: any) {
       navigate("/Kanbas/Account/Signin");
     }
-  }, [client, navigate]);
+  }, [navigate]);
   const dispatch = useDispatch();
   const signout = async () => {
     await client.signout();
