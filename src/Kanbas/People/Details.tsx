@@ -5,6 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import * as client from "./client";
+import { useCallback } from "react";
 export default function PeopleDetails({ fetchUsers }:
     { fetchUsers: () => void; }) {
   const { uid, cid } = useParams();
