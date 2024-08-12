@@ -35,7 +35,7 @@ export default function PeopleDetails({ fetchUsers }:
   };
   useEffect(() => {
     if (uid) fetchUser();
-  }, [uid]);
+  }, [uid, fetchUser]);
   if (!uid) return null;
   return (
     <div className="position-fixed top-0 end-0
