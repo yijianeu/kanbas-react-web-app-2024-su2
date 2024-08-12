@@ -28,11 +28,11 @@ export default function PeopleDetails({ fetchUsers }:
     navigate(`/Kanbas/Courses/${cid}/People`);
   };
 
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     if (!uid) return;
     const user = await client.findUserById(uid);
     setUser(user);
-  };
+  }, [uid]);
   useEffect(() => {
     if (uid) fetchUser();
   }, [uid, fetchUser]);
